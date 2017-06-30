@@ -1,5 +1,10 @@
 package com.sheng.reflection;
 
+/**
+ * 三中实例化类的方法
+ * @author Administrator
+ *
+ */
 public class GetClassTest2 {
 
 	public static void main(String[] args) {

@@ -4,9 +4,6 @@ import java.lang.reflect.Constructor;
 
 /**
  * 类带有有参的构造方法，此类实例化的方法
- * 
- * @author Administrator
- *
  */
 public class NewInstanceTest2 {
 

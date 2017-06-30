@@ -1,5 +1,8 @@
 package com.sheng.reflection;
 
+/**
+ * 取得对象所在类的名称
+ */
 public class GetClassTest {
 
 	public static void main(String[] args) {
