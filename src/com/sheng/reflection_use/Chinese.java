@@ -38,7 +38,7 @@ public class Chinese implements Person{
 
 	@Override
 	public String sayHello(String name, int age) {
-		return "姓名:" + this.name + "年龄：" + this.age;
+		return "姓名:" + name + "年龄：" + age;
 	}
 	
 
