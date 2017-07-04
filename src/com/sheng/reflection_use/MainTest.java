@@ -3,6 +3,7 @@ package com.sheng.reflection_use;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 import javax.swing.text.GapContent;
 
@@ -31,11 +32,36 @@ public class MainTest {
 		System.out.println("父类的名称：" + superClass.getName());
 		
 		// ---3-取得全部的构造方法------------------------------------
+		System.out.println("类中的构造方法===========================");
 		Constructor<?> constructors[] = null;
 		constructors = c.getConstructors();
 		for(int i=0; i<constructors.length; i++) {
 			System.out.println("类中的构造方法：" + constructors[i]);
 		}
+		// --- 修饰符、形参类型、
+		for(int i=0; i<constructors.length; i++) {
+			// 取出权限，并将代表权限的数字转换成字符型，如public等
+			int mod = constructors[i].getModifiers();
+			String modifier = Modifier.toString(mod);
+			// 列出构造方法中的参数类型
+			Class<?>[] parm = constructors[i].getParameterTypes();
+			// 取得构造方法的名称
+			String conName = constructors[i].getName();
+			
+			System.out.print(modifier);
+			System.out.print(" " + conName);
+			System.out.print("(");
+			for(int j=0; j<parm.length; j++) {
+				System.out.print(parm[j].getName() + " arg" + i);
+				if(j<parm.length -1) {
+					System.out.print(", ");
+				}
+			}
+			System.out.print("){}");
+			System.out.println();
+		}
+		System.out.println("类中的构造方法===========================");
+		
 		
 		// ---4-取得所有方法-----------------------------------------
 		Method[] method = null;
@@ -44,7 +70,7 @@ public class MainTest {
 			System.out.println("所有得方法" + method[i]);
 		}
 		
-		// ---5-取得本类属性-----------------------------------------
+		// ---5-取得本类中的属性-----------------------------------------
 		Field[] f1 = c.getDeclaredFields();
 		for(int i=0; i<f1.length; i++) {
 			System.out.println("类里的属性" + f1[i]);
@@ -78,9 +104,7 @@ public class MainTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
+	
 	}
 
 }
